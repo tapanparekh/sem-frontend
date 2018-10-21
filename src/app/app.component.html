@@ -1,20 +1,131 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<title>Contact V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+
+	<div class="container-contact100">
+		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="assets/images/icons/map-marker.png"
+		 data-scrollwhell="0" data-draggable="1"></div>
+
+		<div class="contact100-more">
+			<i class="zmdi zmdi-phone-in-talk"></i>
+			+91 8849563724
+		</div>
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" #quotationForm="ngForm">
+				<span class="contact100-form-title">
+					Send quotation
+				</span>
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Name</span>
+					<input class="input100" type="text" name="name" [(ngModel)]="quotation.name" placeholder="Name..." required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Email</span>
+					<input class="input100" type="text" name="email" [(ngModel)]="quotation.email" placeholder="Email addess..." required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100" data-validate="Address is required">
+					<span class="label-input100">Address</span>
+					<input class="input100" type="text" name="address" [(ngModel)]="quotation.address" placeholder="Address..." required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Select Products">
+					<span class="label-input100">Products</span>
+					<!-- <textarea class="input100" name="message" placeholder="Questions/Comments..."></textarea> -->
+					<ng-select [items]="products" class="input100" name="products" [virtualScroll]="true" [multiple]="true" bindLabel="description" [closeOnSelect]="false" bindValue="item_no" [(ngModel)]="quotation.products" required>
+					</ng-select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100" data-validate="Multiplaying factor is required">
+					<span class="label-input100">Multiplaying factor</span>
+					<input class="input100" type="text" name="mf" [(ngModel)]="quotation.multiplayingFactor" placeholder="Multiplaying factor..." required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" [disabled]="!quotationForm.form.valid" (click)="sendQuotation()">
+							Send
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="assets/js/map-custom.js"></script>
+	<!--===============================================================================================-->
+	<script src="assets/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+	</script>
+
+</body>
+
+</html>
